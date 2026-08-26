@@ -1,5 +1,30 @@
 {
   "dependencies": {
     "nvm": "^0.0.4"
+  },
+  "name": "pokedex_boot.dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/main.js",
+    "dev": "npx tsc && node dist/main.js",
+    "test": "vitest --run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boyanaaaa/Pokedex.git"
+  },
+  "keywords": [],
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/boyanaaaa/Pokedex/issues"
+  },
+  "homepage": "https://github.com/boyanaaaa/Pokedex#readme",
+  "devDependencies": {
+    "@types/node": "^26.3.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
   }
 }

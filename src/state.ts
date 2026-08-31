@@ -1,6 +1,7 @@
 import { createInterface, type Interface } from "readline";
 import { getCommands } from "./commands.js";
 import { PokeAPI } from "./pokeapi.js";
+import { Cache } from "./pokecache.js";
 
 export type CLICommand = {
   name: string;
@@ -24,7 +25,8 @@ export function initState(): State {
   });
 
   const commands = getCommands();
-  const pokeapi = new PokeAPI();
+  const cache = new Cache(5 * 60 * 1000);
+  const pokeapi = new PokeAPI(cache);
 
   return {
     readline,

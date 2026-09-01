@@ -1,6 +1,4 @@
-import * as readline from "readline";
-import { getCommands } from "./commands.js";
-import { State } from "./state.js";
+import type { State } from "./state.js";
 
 export function cleanInput(input: string): string[] {
   return input.trim().toLowerCase().split(/\s+/);
@@ -26,11 +24,13 @@ export function startREPL(state: State) {
     }
 
     try {
-      await command.callback(state);
+      await command.callback(state, ...words.slice(1));
     } catch (err) {
       console.error(err);
     }
 
-    state.readline.prompt();
+    if (words[0] !== "exit") {
+      state.readline.prompt();
+    }
   });
 }
